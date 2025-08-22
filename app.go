@@ -19,7 +19,7 @@ func main() {
 	slog.Info(
 		"Starting Server", "url",
 		fmt.Sprintf(
-			"https://localhost%s",
+			"http://localhost%s",
 			_server.Addr,
 		),
 	)

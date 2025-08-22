@@ -1,7 +1,6 @@
 package server
 
 import (
-	"MementoMori11723/server/middleware"
 	"embed"
 	"fmt"
 	"html/template"
@@ -48,16 +47,14 @@ func getTemplate(name string) *template.Template {
 func Mux() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.Handle("/assets/",
-		middleware.Logger(
-			http.StripPrefix("/assets/",
-				http.FileServer(http.Dir("server/assets")),
-			),
+		http.StripPrefix("/assets/",
+			http.FileServer(http.Dir("server/assets")),
 		),
 	)
 	for route, handler := range routes {
-		mux.Handle(route, middleware.Logger(
+		mux.Handle(route,
 			handler,
-		))
+		)
 	}
 	return mux
 }
