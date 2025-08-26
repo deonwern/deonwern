@@ -29,7 +29,7 @@ var (
 
 func init() {
 	indexTmpl = getTemplate("index")
-	errorTmpl = getTemplate("404")
+	errorTmpl = getTemplate("error")
 	thanksTmpl = getTemplate("thanks")
 }
 
