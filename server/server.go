@@ -13,7 +13,8 @@ var (
 	//go:embed pages/*
 	files embed.FS
 
-	pages = "pages/"
+	pages  = "pages/"
+	layout = "layout.html"
 
 	indexTmpl  *template.Template
 	errorTmpl  *template.Template
@@ -28,14 +29,14 @@ var (
 )
 
 func init() {
-	indexTmpl = getTemplate("index")
+	indexTmpl = getTemplate("home")
 	errorTmpl = getTemplate("error")
 	thanksTmpl = getTemplate("thanks")
 }
 
 func getTemplate(name string) *template.Template {
 	tmpl, err := template.ParseFS(
-		files, fmt.Sprintf("%s%s.html", pages, name),
+		files, pages + layout, fmt.Sprintf("%s%s.html", pages, name),
 	)
 	if err != nil {
 		slog.Error(err.Error())

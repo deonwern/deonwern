@@ -1,179 +1,136 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="yasasvi-theme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="" />
+    <title>Yasasvi's portfolio</title>
 
-  <title>Yasasvi's portfolio</title>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
 
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+      media="all"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet" media="all" />
+    <link
+      rel="prefetch"
+      type="image/webp"
+      href="/assets/img/favicon-small.webp"
+      as="icon"
+    />
+    <link rel="icon" type="image/webp" href="/assets/img/favicon-small.webp" />
 
-  <link rel="prefetch" type="image/webp" href="/assets/img/favicon-small.webp" as="icon" />
-  <link rel="icon" type="image/webp" href="/assets/img/favicon-small.webp" />
+    <!-- Daisy Ui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <!-- pico.css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <!-- Alpine.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"
+    ></script>
 
-  <!-- Alpine.js -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <!-- Tabler icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
 
-  <!-- Tabler icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-
-  <!-- custom code -->
-  <style>
-    :root {
-      --color: white;
-      --bg-color: #1a1a1a;
-      --pico-font-family: Arvo, monospace;
-      --pico-background-color: var(--bg-color);
-      --pico-color: var(--color);
-      --pico-primary: #43fa96;
-      --pico-primary-hover: var(--pico-primary);
-      --pico-primary-hover-underline: var(--pico-primary);
-      --pico-secondary: grey;
-      --pico-border-radius: 0;
-      --pico-transition: 0.1s ease-in-out;
-
-      scroll-behavior: smooth;
-      scroll-padding: 16%;
-    }
-
-    nav {
-      position: sticky;
-    }
-
-    #logo {
-      text-decoration: none;
-      color: var(--color);
-
-      &:hover {
-        background-color: var(--bg-color);
-        color: var(--pico-primary);
+    <!-- custom code -->
+    <style>
+      :root {
+        font-family: Arvo, monospace;
+        font-size: 1.2rem;
+        scroll-behavior: smooth;
+        scroll-padding: 16%;
       }
 
-      .tags {
-        margin: 0;
-        padding: 0;
-        border: none;
-        color: var(--pico-secondary);
+      :root:has(input.theme-controller[value="yasasvi-theme"]:checked),
+      [data-theme="yasasvi-theme"] {
+        color-scheme: "dark";
+        --color-base-100: #1a1a1a;
+        --color-base-content: white;
+        --color-base-200: color-mix(in srgb, #1a1a1a, white 5%);
+        --color-base-300: color-mix(in srgb, white, #1a1a1a 85%);
+        --color-primary: #43fa96;
+        --color-primary-content: #1a1a1a;
+        --color-secondary: gray;
+        --color-secondary-content: white;
+        --color-accent: gray;
+        --color-accent-content: white;
+        --radius-selector: 0.3rem;
+        --radius-field: 0.3rem;
+        --radius-box: 0.3rem;
+        --border: 1px;
       }
-    }
+    </style>
+  </head>
 
-    .links {
-      a {
-        text-decoration: none;
-        color: var(--color);
-        padding-top: 4px;
-        padding-bottom: 4px;
-
-        &:hover {
-          background-color: var(--pico-primary);
-          color: var(--bg-color);
-        }
-      }
-    }
-
-    footer {
-      background-color: var(--pico-primary);
-      color: var(--bg-color);
-
-      a {
-        text-decoration: none;
-        text-align: center;
-        border: 1px solid var(--bg-color);
-        color: inherit;
-        margin: 0.5rem;
-        padding: 0.2rem;
-
-        &:hover {
-          background-color: var(--color);
-        }
-      }
-
-      p {
-        color: inherit;
-        font-size: 1rem;
-        padding-top: 1rem;
-      }
-
-      #copyright {
-        padding: 0;
-        background-color: color-mix(
-          in srgb,
-          var(--pico-primary) 95%,
-          var(--color) 30%
-        );
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="container-fluid">
-    <ul>
-      <li>
-        <a id="logo" href="/">
-          <span class="tags">&lt;</span>
+  <body>
+    <nav class="navbar bg-base-100 shadow-sm text-lg">
+      <div class="flex-1">
+        <a class="btn btn-ghost" href="/#">
+          <span class="p-0">&lt;</span>
           <span>Yasasvi Gumma</span>
-          <span class="tags">/&gt;</span>
+          <span class="p-0">/&gt;</span>
         </a>
-      </li>
-    </ul>
-    {{template "page-links" .}}
-  </nav>
-  <main>{{template "content" .}}</main>
-  <footer>
-    <p align="center">Social media links</p>
-    <div align="center" class="container">
-      <a href="mailto:contact@yasasvi.site">
-        <i class="ti ti-mail"></i>
-        <span>Email</span>
-      </a>
-      <a href="https://www.linkedin.com/in/yasasvi-gumma/">
-        <i class="ti ti-brand-linkedin"></i>
-        <span>Linkedin</span>
-      </a>
-      <a href="https://github.com/MementoMori11723">
-        <i class="ti ti-brand-github"></i>
-        <span>Github</span>
-      </a>
-    </div>
-
-    <p align="center">Other links</p>
-    <div>{{template "page-links" .}}</div>
-
-    <p id="copyright" align="center"></p>
-    <script>
-      (() => {
-        const copyrightElement = document.getElementById("copyright");
-        copyrightElement.innerHTML =
-          "&copy;  " +
-          new Date().getFullYear() +
-          " yasasvi.site - All Rights Reserved.";
-      })();
-    </script>
-  </footer>
-</body>
-
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          {{template "page-links" .}}
+        </ul>
+      </div>
+    </nav>
+    <main class="container">{{template "content" .}}</main>
+    <footer
+      class="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4"
+    >
+      <aside class="grid-flow-col items-center" x-data="{date: new Date()}">
+        <p
+          class="copyright"
+          x-text="'Copyright &copy;' + date.getFullYear() + ' yasasvi.duet.ink - All Rights Reserved.'"
+        ></p>
+      </aside>
+      <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+        {{template "social-links" .}}
+      </nav>
+    </footer>
+  </body>
 </html>
 
+<!-- page-links -->
 {{define "page-links"}}
-<ul class="links">
-  <li><a href="/#">Home</a></li>
-  <li><a href="/#about">about</a></li>
-  <li><a href="/#skills">skills</a></li>
-  <li><a href="/#experience">experience</a></li>
-  <li><a href="/#projects">projects</a></li>
-  <li><a href="/#contact">contact</a></li>
-</ul>
+<li><a href="/#hero">Home</a></li>
+<li><a href="/#about">about</a></li>
+<li><a href="/#skills">skills</a></li>
+<li><a href="/#experience">experience</a></li>
+<li><a href="/#projects">projects</a></li>
+<li><a href="/#contact">contact</a></li>
+{{end}}
+
+<!-- social-links -->
+{{define "social-links"}}
+<a href="mailto:contact@yasasvi.site">
+  <i class="ti ti-mail"></i>
+  <span>Email</span>
+</a>
+<a href="https://www.linkedin.com/in/yasasvi-gumma/">
+  <i class="ti ti-brand-linkedin"></i>
+  <span>Linkedin</span>
+</a>
+<a href="https://github.com/MementoMori11723">
+  <i class="ti ti-brand-github"></i>
+  <span>Github</span>
+</a>
 {{end}}
