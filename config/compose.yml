@@ -4,19 +4,17 @@ services:
       context: ../
       dockerfile: config/Dockerfile
     container_name: yasasvi-site
-    restart: always
+    image: yasasvi-site:latest
     working_dir: /app
-    volumes:
-      - sqlite_dir:/data
     expose:
       - "11000"
     networks:
-      - deploy_net
+      - proxy
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
 
 networks:
-  deploy_net:
+  proxy:
     external: true
-
-volumes:
-  ollama_data:
-  sqlite_dir:
