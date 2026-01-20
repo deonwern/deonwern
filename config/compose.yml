@@ -6,8 +6,8 @@ services:
     container_name: yasasvi-site
     image: yasasvi-site:latest
     working_dir: /app
-    expose:
-      - "11000"
+    ports:
+      - "11000:11000"
     networks:
       - proxy
     deploy:
