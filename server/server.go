@@ -16,27 +16,24 @@ var (
 	pages  = "pages/"
 	layout = "layout.html"
 
-	indexTmpl  *template.Template
-	errorTmpl  *template.Template
-	thanksTmpl *template.Template
+	indexTmpl *template.Template
+	errorTmpl *template.Template
 
 	routes = map[string]http.HandlerFunc{
 		"/":           home,
-		"/thanks":     thanks,
 		"/robots.txt": robot,
 		"/404":        errorPage,
 	}
 )
 
 func init() {
-	indexTmpl = getTemplate("home")
+	indexTmpl = getTemplate("layout")
 	errorTmpl = getTemplate("error")
-	thanksTmpl = getTemplate("thanks")
 }
 
 func getTemplate(name string) *template.Template {
 	tmpl, err := template.ParseFS(
-		files, pages + layout, fmt.Sprintf("%s%s.html", pages, name),
+		files, fmt.Sprintf("%s%s.html", pages, name),
 	)
 	if err != nil {
 		slog.Error(err.Error())
@@ -66,12 +63,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if err := indexTmpl.Execute(w, nil); err != nil {
-		http.Redirect(w, r, "/404", http.StatusFound)
-	}
-}
-
-func thanks(w http.ResponseWriter, r *http.Request) {
-	if err := thanksTmpl.Execute(w, nil); err != nil {
 		http.Redirect(w, r, "/404", http.StatusFound)
 	}
 }
