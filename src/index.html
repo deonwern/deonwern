@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>deonwern | coming soon</title>
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      /* Soft light white to prevent harsh contrast/flashbangs */
+      --bg-color: #f8f9fa;
+      --text-color: #1a1c20;
+      --accent-color: #2563eb;
+      /* Tailored deep electric blue for light mode readability */
+      --muted-color: #64748b;
+
+      /* Smooth, premium cubic bezier easing curve */
+      --custom-ease: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Rethink Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 620px;
+      will-change: transform, opacity;
+    }
+
+    h1 {
+      font-family: 'Rethink Sans', sans-serif;
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.2rem;
+      color: var(--text-color);
+
+      /* Animation configuration */
+      opacity: 0;
+      animation: slideUpFade 1.2s var(--custom-ease) forwards;
+      animation-delay: 0.1s;
+    }
+
+    /* Elegant, clean minimalist divider */
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: var(--accent-color);
+      margin: 0 auto 1.8rem auto;
+      border-radius: 2px;
+
+      /* Animation configuration */
+      opacity: 0;
+      transform: scaleX(0);
+      animation: expandDivider 1s var(--custom-ease) forwards;
+      animation-delay: 0.3s;
+    }
+
+    p {
+      font-family: 'Hedvig Letters Serif', Georgia, serif;
+      font-size: 1.2rem;
+      color: var(--muted-color);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+
+      /* Animation configuration */
+      opacity: 0;
+      animation: slideUpFade 1.2s var(--custom-ease) forwards;
+      animation-delay: 0.4s;
+    }
+
+    .footer {
+      font-family: 'Rethink Sans', sans-serif;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      position: absolute;
+      bottom: 20px;
+      letter-spacing: 0.05em;
+
+      /* Animation configuration */
+      opacity: 0;
+      animation: fadeInOnly 1s var(--custom-ease) forwards;
+      animation-delay: 0.7s;
+    }
+
+    .btn {
+      font-family: 'Rethink Sans', sans-serif;
+      display: inline-block;
+      text-decoration: none;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s var(--custom-ease), opacity 0.2s var(--custom-ease);
+
+      /* Animation configuration */
+      opacity: 0;
+      animation: slideUpFade 1.2s var(--custom-ease) forwards;
+      animation-delay: 0.5s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    /* Keyframe Animations */
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes expandDivider {
+      from {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes fadeInOnly {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Something exciting is coming.</h1>
+    <div class="divider"></div>
+    <p>I am building the next generation of applications at deonwern. This space is currently under construction, but
+      something tailored, reliable, and unique will be launching here soon.</p>
+    <a href="https://github.com/deonwern" target="_blank" class="btn">Check out my github</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 deonwern. All rights reserved.
+  </div>
+
+</body>
+
+</html>
