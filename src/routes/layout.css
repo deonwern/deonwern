@@ -37,3 +37,8 @@
   --depth: 1;
   --noise: 1;
 }
+
+:root {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
