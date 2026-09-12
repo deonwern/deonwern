@@ -1,9 +1,9 @@
 <script>
-	import { Hero, About, Contact } from '$lib/index';
+	import { Hero, Oath, Contact } from '$lib/index';
 </script>
 
 <main>
 	<Hero />
-	<About />
+	<Oath />
 	<Contact />
 </main>
