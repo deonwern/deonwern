@@ -31,7 +31,7 @@
 	];
 </script>
 
-<header class="navbar border-base-200 bg-base-100 mx-auto max-w-6xl border-b px-6 py-6">
+<header class="navbar mx-auto max-w-6xl border-b border-base-200 bg-base-100 px-6 py-6">
 	<div class="navbar-start">
 		<a
 			href={github}
@@ -43,27 +43,19 @@
 		</a>
 	</div>
 
-	<!-- Desktop & Mobile Megamenu Integration -->
 	<div class="navbar-center">
-		<!-- Mobile trigger button -->
-		<button class="btn sm:hidden" popovertarget="main-megamenu">Menu</button>
-
 		<!-- Megamenu container -->
-		<div
-			class="megamenu max-sm:megamenu-vertical border-base-300 hidden border p-2 md:flex"
-			id="main-megamenu"
-			popover
-		>
+		<div class="megamenu hidden p-2 max-sm:megamenu-vertical md:flex" id="main-megamenu" popover>
 			<span class="megamenu-active"></span>
 
-			{#each menuItems as item}
+			{#each menuItems as item, index (index)}
 				<button popovertarget={item.id} class="cursor-pointer px-4 py-2 font-medium select-none">
 					{item.label}
 				</button>
 
 				<div id={item.id} popover>
-					<ul class="menu rounded-box border-base-200 bg-base-100 w-52 border p-2 shadow-lg">
-						{#each item.children as sub}
+					<ul class="menu w-52 rounded-box border border-base-200 bg-base-100 p-2 shadow-lg">
+						{#each item.children as sub, index (index)}
 							<li><a href={resolve(sub.href)} class="rounded-btn px-4 py-2">{sub.name}</a></li>
 						{/each}
 					</ul>
@@ -73,7 +65,7 @@
 	</div>
 
 	<div class="navbar-end">
-		<a href={resolve('/#connect')} class="btn btn-outline btn-md">Connect</a>
+		<a href={resolve('/#connect')} class="btn btn-md btn-primary">Send Message</a>
 	</div>
 
 	<Fab />
